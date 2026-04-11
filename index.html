@@ -66,12 +66,6 @@ h1 {
     box-shadow: 0 0 30px rgba(0,200,255,0.8);
 }
 
-.counter {
-    margin-top: 6px;
-    font-size: 14px;
-    opacity: 0.8;
-}
-
 .footer {
     margin-top: 20px;
     font-size: 12px;
@@ -87,19 +81,18 @@ h1 {
 
     <h1>JK‑Links</h1>
 
-    <!-- DŻORDŻÓWKA -->
-    <button class="link-btn" onclick="goDzordzowka()">Dżordżówka Grupa</button>
-    <div id="c_dzordzowka" class="counter">Ładowanie...</div>
+    <button class="link-btn" onclick="window.location.href='https://kub4-dev.github.io/dzordzowka-grupa/'">
+        Dżordżówka Grupa
+    </button>
 
-    <!-- PROJECT -->
-    <button class="link-btn" onclick="goProject()">JK‑Dev Project</button>
-    <div id="c_project" class="counter">Ładowanie...</div>
+    <button class="link-btn" onclick="window.location.href='https://kub4-dev.github.io/JK-Dev-project/'">
+        JK‑Dev Project
+    </button>
 
-    <!-- INFO -->
-    <button class="link-btn" onclick="goInfo()">JK‑Dev Info</button>
-    <div id="c_info" class="counter">Ładowanie...</div>
+    <button class="link-btn" onclick="window.location.href='https://kub4-dev.github.io/JK-Dev-inf/'">
+        JK‑Dev Info
+    </button>
 
-    <!-- NOWA STRONA -->
     <button class="link-btn" onclick="alert('Nowa strona jeszcze nie istnieje')">
         Nowa strona – wkrótce
     </button>
@@ -108,43 +101,6 @@ h1 {
 
 </div>
 </div>
-
-<script>
-// 🔥 LICZNIKI ODWIEDZIN (automatyczne)
-function loadCounters() {
-    fetch("https://api.countapi.xyz/hit/jkdev/dzordzowka")
-        .then(r => r.json())
-        .then(d => document.getElementById("c_dzordzowka").innerHTML =
-            "Dżordżówka – licznik odwiedzin: " + d.value);
-
-    fetch("https://api.countapi.xyz/hit/jkdev/project")
-        .then(r => r.json())
-        .then(d => document.getElementById("c_project").innerHTML =
-            "JK‑Dev Project – licznik odwiedzin: " + d.value);
-
-    fetch("https://api.countapi.xyz/hit/jkdev/info")
-        .then(r => r.json())
-        .then(d => document.getElementById("c_info").innerHTML =
-            "JK‑Dev Info – licznik odwiedzin: " + d.value);
-}
-loadCounters();
-
-// 🔥 KLIK → LICZNIK + PRZEJŚCIE
-function goDzordzowka() {
-    fetch("https://api.countapi.xyz/hit/jkdev/dzordzowka");
-    window.location.href = "https://kub4-dev.github.io/dzordzowka-grupa/";
-}
-
-function goProject() {
-    fetch("https://api.countapi.xyz/hit/jkdev/project");
-    window.location.href = "https://kub4-dev.github.io/JK-Dev-project/";
-}
-
-function goInfo() {
-    fetch("https://api.countapi.xyz/hit/jkdev/info");
-    window.location.href = "https://kub4-dev.github.io/JK-Dev-inf/";
-}
-</script>
 
 </body>
 </html>
