@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>JK-Links</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0a0a0f;
+    color: #e5e5e5;
+    text-align: center;
+  }
+
+  header {
+    padding: 25px;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: #111827;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+
+  .links {
+    max-width: 600px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .link {
+    padding: 18px;
+    border-radius: 10px;
+    background: #1f2937;
+    color: #e5e5e5;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.25s;
+    border: 1px solid #374151;
+  }
+
+  .link:hover {
+    background: #2563eb;
+    transform: scale(1.03);
+    box-shadow: 0 0 15px #2563eb;
+  }
+
+  #futureBox {
+    margin-top: 40px;
+    padding: 20px;
+    background: #111827;
+    border-radius: 10px;
+    display: none;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  }
+
+  #futureBox a {
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  footer {
+    margin-top: 40px;
+    padding: 15px;
+    font-size: 12px;
+    color: #6b7280;
+  }
+</style>
+</head>
+<body>
+
+<header>JK‑Links</header>
+
+<div class="links">
+  <a class="link" href="https://kub4-dev.github.io/dzordzowka-grupa/">Dzordzowka Grupa</a>
+  <a class="link" href="https://kub4-dev.github.io/JK-Dev-project/">JK‑Dev Project</a>
+  <a class="link" href="https://kub4-dev.github.io/JK-Dev-inf/">JK‑Dev Info</a>
+
+  <!-- Nowa strona – jeszcze nie istnieje -->
+  <a class="link" href="#">Nowa piękna strona nadchodzi…</a>
+</div>
+
+<!-- Powiadomienie aktywne dopiero 20 kwietnia 2026 -->
+<div id="futureBox">
+  <h2>Nowa strona została dodana!</h2>
+  <p>Kliknij tutaj aby zobaczyć:</p>
+  <a href="#">👉 Otwórz nową stronę</a>
+</div>
+
+<script>
+// DATA AKTYWACJI
+const activationDate = new Date("2026-04-20T00:00:00");
+
+// DZISIAJ
+const now = new Date();
+
+// Jeśli dziś jest 20 kwietnia 2026 lub później → pokaż powiadomienie
+if (now >= activationDate) {
+  document.getElementById("futureBox").style.display = "block";
+}
+</script>
+
+<footer>© 2026 JK‑Dev</footer>
+
+</body>
+</html>
