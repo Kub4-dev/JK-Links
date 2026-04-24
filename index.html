@@ -6,6 +6,27 @@
 
 <title>JK‑Links</title>
 
+<!-- ⭐ STATYCZNA FAVICON JK (bez animacji) -->
+<link rel="icon" type="image/svg+xml"
+href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'>
+<defs>
+<linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+<stop offset='0%' stop-color='%2300caff'/>
+<stop offset='100%' stop-color='%230050ff'/>
+</linearGradient>
+</defs>
+
+<rect x='0' y='0' width='64' height='64' rx='12' fill='url(%23g)'/>
+
+<text x='50%' y='57%' font-size='32' font-family='Segoe UI' font-weight='800'
+fill='white' text-anchor='middle'>
+JK
+</text>
+
+</svg>
+">
+
 <style>
 /* -------------------- GLOBAL -------------------- */
 body {
@@ -33,7 +54,6 @@ body {
     animation-delay: 5s;
 }
 
-/* ✔️ Pulsujące neonowe logo */
 .intro-logo {
     font-size: 48px;
     font-weight: 800;
@@ -41,25 +61,20 @@ body {
     color: #00eaff;
     text-shadow: 0 0 12px #00eaff, 0 0 25px #00aaff;
     opacity: 0;
-
-    animation: 
-        fadeIn 1.5s ease forwards,
-        pulse 2.5s ease-in-out infinite;
+    animation: fadeIn 1.5s ease forwards, pulse 2.5s ease-in-out infinite;
 }
 
-/* Animacje logo */
 @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.92); }
     to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes pulse {
-    0% { text-shadow: 0 0 12px #00eaff, 0 0 25px #00aaff; transform: scale(1); }
-    50% { text-shadow: 0 0 25px #00eaff, 0 0 45px #00aaff; transform: scale(1.05); }
-    100% { text-shadow: 0 0 12px #00eaff, 0 0 25px #00aaff; transform: scale(1); }
+    0% { text-shadow: 0 0 12px #00eaff, 0 0 25px #00aaff; }
+    50% { text-shadow: 0 0 25px #00eaff, 0 0 45px #00aaff; }
+    100% { text-shadow: 0 0 12px #00eaff, 0 0 25px #00aaff; }
 }
 
-/* Znikanie intro */
 @keyframes introFadeOut {
     to { opacity: 0; visibility: hidden; }
 }
@@ -106,7 +121,10 @@ h1 {
     text-shadow: 0 0 12px #00e1ff;
 }
 
+/* -------------------- ANIMACJA PRZYCISKÓW -------------------- */
 .link-btn {
+    position: relative;
+    overflow: hidden;
     margin-top: 15px;
     padding: 14px;
     border-radius: 14px;
@@ -119,6 +137,42 @@ h1 {
     transition: 0.3s;
     box-shadow: 0 0 20px rgba(0,200,255,0.45);
     font-size: 17px;
+    opacity: 0;
+    transform: translateY(25px);
+    animation: slideUp 0.8s ease forwards;
+}
+
+.link-btn:nth-child(2) { animation-delay: 5.3s; }
+.link-btn:nth-child(3) { animation-delay: 5.5s; }
+.link-btn:nth-child(4) { animation-delay: 5.7s; }
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------- AUTOMATYCZNY SHINE -------------------- */
+.link-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 80%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.7),
+        transparent
+    );
+    transform: skewX(-25deg);
+    animation: shine 3s infinite ease-in-out;
+}
+
+@keyframes shine {
+    0% { left: -150%; }
+    50% { left: 150%; }
+    100% { left: -150%; }
 }
 
 .link-btn:hover {
@@ -159,7 +213,7 @@ h1 {
         Nowa strona – wkrótce
     </button>
 
-    <div class="footer">© 2026 JK‑Websites</div>
+    <div class="footer">© 2026 JK‑Dev</div>
 
 </div>
 </div>
